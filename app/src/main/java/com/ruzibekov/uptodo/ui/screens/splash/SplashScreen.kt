@@ -1,5 +1,6 @@
 package com.ruzibekov.uptodo.ui.screens.splash
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -18,21 +19,24 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ruzibekov.uptodo.R
-import com.ruzibekov.uptodo.ui.components.buttons.PrimaryButton
 import com.ruzibekov.uptodo.ui.theme.UpTodoTheme
 
 object SplashScreen {
 
     @Composable
     fun Default() {
+
         Column(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.background),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
+
             Icon(
                 painter = painterResource(id = R.drawable.ic_app_icon),
-                contentDescription = "",
+                contentDescription = "app logo",
                 modifier = Modifier.size(113.dp),
                 tint = MaterialTheme.colorScheme.primary
             )
@@ -41,8 +45,9 @@ object SplashScreen {
 
             Text(
                 text = stringResource(id = R.string.app_name),
+                style = MaterialTheme.typography.displayLarge,
+                color = MaterialTheme.colorScheme.onPrimary,
                 fontSize = 40.sp,
-                style = MaterialTheme.typography.displayLarge
             )
         }
     }

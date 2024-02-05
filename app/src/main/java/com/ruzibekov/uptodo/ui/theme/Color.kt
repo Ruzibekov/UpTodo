@@ -10,5 +10,6 @@ object UpToDoColors {
     val Gray = Color(0xFFAFAFAF)
     val MediumPurple = Color(0xFF8685E7)
     val White = Color.White
+    val Background = Color(0xFF121212)
 
 }

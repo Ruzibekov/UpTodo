@@ -23,6 +23,7 @@ private val DarkColorScheme = darkColorScheme(
     onSurfaceVariant = UpToDoColors.Gray,
     outline = UpToDoColors.SpanishGray,
     outlineVariant = UpToDoColors.MediumPurple,
+    background = UpToDoColors.Background
 //    secondary = PurpleGrey80,
 //    tertiary = Pink80
 )
@@ -35,6 +36,7 @@ private val LightColorScheme = lightColorScheme(
     onSurfaceVariant = UpToDoColors.Gray,
     outline = UpToDoColors.SpanishGray,
     outlineVariant = UpToDoColors.MediumPurple,
+    background = UpToDoColors.Background
 //    secondary = PurpleGrey40,
 //    tertiary = Pink40
 

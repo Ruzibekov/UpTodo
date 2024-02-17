@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
@@ -29,7 +28,6 @@ import com.google.accompanist.pager.rememberPagerState
 import com.ruzibekov.uptodo.R
 import com.ruzibekov.uptodo.ui.components.buttons.PrimaryButton
 import com.ruzibekov.uptodo.ui.screens.onboarding.components.OnboardingPagerView
-import com.ruzibekov.uptodo.ui.screens.splash.PageType
 import com.ruzibekov.uptodo.ui.theme.UpTodoTheme
 
 object OnboardingScreen {
@@ -37,6 +35,7 @@ object OnboardingScreen {
     @OptIn(ExperimentalPagerApi::class)
     @Composable
     fun Default() {
+        val pagerState = rememberPagerState()
 
         Scaffold(
             topBar = {
@@ -47,16 +46,13 @@ object OnboardingScreen {
             }
         ) { paddingValues ->
 
-            val pagerState = rememberPagerState()
-
             Box(modifier = Modifier.padding(paddingValues)) {
 
-                HorizontalPager(count = PageType.entries.size, state = pagerState) { currentPage ->
-
-                    OnboardingPagerView.Default(
-                        currentPage = currentPage,
-                        modifier = Modifier.fillMaxSize()
-                    )
+                HorizontalPager(
+                    count = PageType.entries.size,
+                    state = pagerState
+                ) { page ->
+                    OnboardingPagerView.Default(page = page)
                 }
 
                 HorizontalPagerIndicator(
@@ -123,7 +119,7 @@ object OnboardingScreen {
 }
 
 
-@Preview
+@Preview(device = "id:pixel_7_pro")
 @Composable
 private fun OnBoardingScreenPreview() {
     UpTodoTheme {

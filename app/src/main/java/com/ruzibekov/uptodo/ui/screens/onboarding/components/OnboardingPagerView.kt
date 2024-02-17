@@ -1,10 +1,12 @@
 package com.ruzibekov.uptodo.ui.screens.onboarding.components
 
+import android.content.res.Configuration
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -18,16 +20,20 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ruzibekov.uptodo.R
-import com.ruzibekov.uptodo.ui.screens.splash.PageType
+import com.ruzibekov.uptodo.ui.screens.onboarding.PageType
 import com.ruzibekov.uptodo.ui.theme.UpTodoTheme
 
 object OnboardingPagerView {
 
     @Composable
-    fun Default(currentPage: Int, modifier: Modifier = Modifier) {
+    fun Default(page: Int) {
 
-        Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-            when (currentPage) {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            when (page) {
                 PageType.FIRST.index -> {
                     PageContentView(
                         iconRes = R.drawable.img_onboarding_1,
@@ -89,10 +95,18 @@ object OnboardingPagerView {
 }
 
 
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+private fun OnboardingPagerViewDarkPreview() {
+    UpTodoTheme {
+        OnboardingPagerView.Default(page = 1)
+    }
+}
+
 @Preview
 @Composable
-private fun OnboardingPagerViewPreview() {
+private fun OnboardingPagerViewLightPreview() {
     UpTodoTheme {
-        OnboardingPagerView.Default(currentPage = 1)
+        OnboardingPagerView.Default(page = 1)
     }
 }
